@@ -32,6 +32,32 @@
               </a>
             </li>
 
+
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                  Articles
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{ route('admin.article.create') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Article</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ route('admin.article.index') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>View Article</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

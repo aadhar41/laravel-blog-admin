@@ -18,3 +18,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+    Route::get('article/index', 'ArticleController@index')->name('admin.article.index');
+    Route::get('article/edit/{id}', 'ArticleController@edit')->name('admin.article.edit');
+    Route::post('article/update/{id}', 'ArticleController@update')->name('admin.article.update');
+    Route::get('article/show/{id}', 'ArticleController@show')->name('admin.article.show');
+    Route::get('article/destroy/{id}', 'ArticleController@destroy')->name('admin.article.destroy');
+    Route::get('article/create', 'ArticleController@create')->name('admin.article.create');
+    Route::post('article/store', 'ArticleController@store')->name('admin.article.store');
+});
+
+
+
