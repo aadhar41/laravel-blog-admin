@@ -27,6 +27,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('article/destroy/{id}', 'ArticleController@destroy')->name('admin.article.destroy');
     Route::get('article/create', 'ArticleController@create')->name('admin.article.create');
     Route::post('article/store', 'ArticleController@store')->name('admin.article.store');
+    Route::get('article/images/{id}', 'ArticleController@images')->name('admin.article.images');
 });
 
 

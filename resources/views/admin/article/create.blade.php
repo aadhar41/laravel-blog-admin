@@ -2,8 +2,7 @@
 
 @section('content')
 
-<div class="content">
-   <div class="container-fluid">
+
    		<div class="card">
             <div class="card-header">
               <h3 class="card-title">Article</h3>
@@ -12,36 +11,6 @@
             <div class="card-body">
               <div class="container-fluid">
 
-            @if (count($errors) > 0)
-
-<div class="alert alert-danger">
-
-    <strong>Sorry!</strong> There were more problems with your HTML input.<br><br>
-
-    <ul>
-
-      @foreach ($errors->all() as $error)
-
-          <li>{{ $error }}</li>
-
-      @endforeach
-
-    </ul>
-
-</div>
-
-@endif
-
-
-@if(session('success'))
-
-<div class="alert alert-success">
-
-  {{ session('success') }}
-
-</div> 
-
-@endif
                     
                      {!! Form::open(['route' => 'admin.article.store', 'method' => 'POST', 'class' => 'form-horizontal','id' => 'popup-validation','enctype' => 'multipart/form-data']) !!}
                     
@@ -96,7 +65,5 @@
 
             <!-- /.card-body -->
          </div>
-   </div>
-</div>
 
 @endsection

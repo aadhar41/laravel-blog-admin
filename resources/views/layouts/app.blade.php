@@ -12,11 +12,17 @@
             @include('admin.includes.aside')
 
             <div class="content-wrapper">
+                <div class="content">
+                   <div class="container-fluid">
+                
+                    @include('admin.includes.breadcrumb')
+                    
+                    @include('admin.includes.messages')
 
-                @include('admin.includes.breadcrumb')
+                    @yield('content')
 
-                @yield('content')
-
+                    </div>
+                </div>
             </div>
 
             @include('admin.includes.footer')

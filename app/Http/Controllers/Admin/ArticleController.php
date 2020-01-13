@@ -17,7 +17,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $listings = Article::orderBy('created_at','desc')->get();
+        return view('admin.article.index',compact('listings'))->with('controllername','Article');
     }
 
     /**
@@ -42,18 +43,14 @@ class ArticleController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'description' => 'required',
-            // 'image' => 'required|file',
+            'image' => 'required',
         ]);
 
-
-
         // Create Article
-        
         $article = new Article;
         $article->title = $request->input('title');
         $article->description = $request->input('description');
         $article->short_description = $request->input('short_description');
-        // $article->image = 'public/uploads/articles/'.$name;
         $article->created_by = auth()->user()->id;;
         $article->save();
 
@@ -84,7 +81,11 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
+        $article = Article::where('id','=', $id)
+                ->first();
+
+
+        return view('admin.article.show')->with('article', $article)->with('controllername','Article');
     }
 
     /**
@@ -95,7 +96,8 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article = Article::find($id);
+        return view('admin.article.edit')->with('article', $article)->with('controllername','Edit article');
     }
 
     /**
@@ -107,7 +109,38 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+
+        // Create Listing
+        $article = Article::find($id);
+        $article->title = $request->input('title');
+        $article->description = $request->input('description');
+        $article->save();
+
+        // deleting previous images
+        $id = (array) $id;
+        ArticleMedia::whereIn('article_id',$id)->delete();
+
+        $files = $request->file('image');
+
+        if($request->file('image'))
+        {
+            $destinationPath = public_path('/uploads/articles/');
+            foreach ($files as $file) {
+
+                $name = 'article_'.$file->getSize().time().'.'.$file->getClientOriginalExtension();
+                $file->move($destinationPath,$name);
+                $articleMedia = new ArticleMedia;
+                $articleMedia->article_id = $article->id;
+                $articleMedia->image = 'public/uploads/articles/'.$name;
+                $articleMedia->save();
+            }
+        }
+
+        return redirect('admin/article/index')->with('success', 'Article Updated.');
     }
 
     /**
@@ -118,6 +151,26 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $article = Article::find($id);
+        $article->delete();
+
+        return redirect('admin/article/index')->with('error', 'Article Removed.');
     }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function images($id)
+    {
+        $article = ArticleMedia::where('article_id','=', $id)
+                ->get();
+
+        return view('admin.article.images')->with('article', $article)->with('controllername','Article');
+    }
+
 }
