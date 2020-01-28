@@ -57,6 +57,32 @@
               </ul>
             </li>
 
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                  Journals
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{ route('admin.journal.create') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add journal</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ route('admin.journal.index') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>View journal</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+
+
 
           </ul>
         </nav>
