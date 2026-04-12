@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{ url('public/AdminLTE/plugins/fontawesome-free/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ url('AdminLTE/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
   <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="{{ url('public/AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url('AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{ url('public/AdminLTE/dist/css/adminlte.min.css') }}">
+  <link rel="stylesheet" href="{{ url('AdminLTE/dist/css/adminlte.min.css') }}">
 
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -66,7 +66,7 @@
             <label class="form-check-label" for="remember">
                 {{ __('Remember Me') }}
             </label>
-              
+
             </div>
           </div>
           <!-- /.col -->
@@ -80,11 +80,11 @@
       <div class="social-auth-links text-center mb-3">
         <p>- OR -</p>
 
-        
+
         <a href="{{ route('register') }}" class="btn btn-block btn-primary">
           {{ __('Register') }}
         </a>
-        
+
       </div>
       <!-- /.social-auth-links -->
 
@@ -95,7 +95,7 @@
             </a>
         @endif
       </p>
-      
+
     </div>
     <!-- /.login-card-body -->
   </div>
@@ -103,9 +103,9 @@
 <!-- /.login-box -->
 
 <!-- jQuery -->
-<script src="{{ url('public/AdminLTE/plugins/jquery/jquery.min.js') }}" defer></script>
+<script src="{{ url('AdminLTE/plugins/jquery/jquery.min.js') }}" defer></script>
 <!-- Bootstrap 4 -->
-<script src="{{ url('public/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js') }}" defer></script>
+<script src="{{ url('AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js') }}" defer></script>
 
 </body>
 </html>

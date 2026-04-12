@@ -14,9 +14,9 @@
             <div class="content-wrapper">
                 <div class="content">
                    <div class="container-fluid">
-                
+
                     @include('admin.includes.breadcrumb')
-                    
+
                     @include('admin.includes.messages')
 
                     @yield('content')
